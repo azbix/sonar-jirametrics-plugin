@@ -1,0 +1,57 @@
+<div class="widget-span widget-span-3">
+
+  <div class="widget-measure-container">
+    <div class="widget-measure widget-measure-main">
+      <span class="widget-label">Jira Issues</span>
+      <span class="nowrap">
+        <span class="link-rules-issues">
+          <a href="<%= Property.value('sonar.jirametrics.jira_server_url', @project.id) -%>/issues/?filter=<%= Property.value('sonar.jirametrics.jira_filter_id', @project.id) -%>" class="widget-link link-rules-debt" target="_blank">
+            <span id='m_violations'><%= format_measure('jira_issues_count') -%></span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="widget-measure-delta"></div>
+  </div>
+
+</div>
+
+<div class="widget-span widget-span-4">
+  <table class="data widget-barchar">
+    <tr>
+      <td class="thin nowrap"><i class="icon-severity-blocker"></i> Rush</td>
+      <td class="thin right nowrap">
+        <span id='m_blocker_violations'><%= format_measure('jira_issues_count_rush') -%></span>
+      </td>
+      <td class="thin nowrap"></td>
+      </tr>
+      <tr>
+        <td class="thin nowrap"><i class="icon-severity-critical"></i> High</td>
+        <td class="thin right nowrap">
+          <span id='m_critical_violations'  ><%= format_measure('jira_issues_count_high') -%></span>
+        </td>
+        <td class="thin nowrap"></td>
+      </tr>
+      <tr>
+        <td class="thin nowrap"><i class="icon-severity-major"></i> Normal</td>
+        <td class="thin right nowrap">
+          <span id='m_major_violations'  ><%= format_measure('jira_issues_count_normal') -%></span>
+        </td>
+         <td class="thin nowrap"></td>
+      </tr>
+      <tr>
+        <td class="thin nowrap"><i class="icon-severity-minor"></i> Low</td>
+        <td class="thin right nowrap">
+          <span id='m_minor_violations'  ><%= format_measure('jira_issues_count_low') -%></span>
+        </td>
+        <td class="thin nowrap"></td>
+      </tr>
+      <tr>
+        <td class="thin nowrap"><i class="icon-severity-info"></i> Cosmetic</td>
+        <td class="thin right nowrap">
+          <span id='m_info_violations'  ><%= format_measure('jira_issues_count_cosmetic') -%></span>
+        </td>
+        <td class="thin nowrap"></td>
+      </tr>
+  </table>
+</div>
